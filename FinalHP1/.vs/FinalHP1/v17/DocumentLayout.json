@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\Final\\FinalHP1\\FinalHP1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{39F84837-D7E9-48AD-908A-7B9521DE1E05}|FinalHP1\\FinalHP1.csproj|c:\\users\\juanj\\onedrive\\escritorio\\universidad\\2024-2\\herramientas de programacion 1\\final\\finalhp1\\finalhp1\\finalhp1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{39F84837-D7E9-48AD-908A-7B9521DE1E05}|FinalHP1\\FinalHP1.csproj|solutionrelative:finalhp1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\Final\\FinalHP1\\FinalHP1\\FinalHP1\\Form1.cs",
+              "RelativeDocumentMoniker": "FinalHP1\\Form1.cs",
+              "ToolTip": "C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\Final\\FinalHP1\\FinalHP1\\FinalHP1\\Form1.cs [Dise\u00F1o]",
+              "RelativeToolTip": "FinalHP1\\Form1.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T17:37:39.807Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
