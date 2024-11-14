@@ -3,3 +3,8 @@ C:\Users\juanj\OneDrive\Escritorio\UNIVERSIDAD\2024-2\Herramientas de programaci
 C:\Users\juanj\OneDrive\Escritorio\UNIVERSIDAD\2024-2\Herramientas de programacion 1\Final\FinalHP1\FinalHP1\FinalHP1\obj\Debug\FinalHP1.Properties.Resources.resources
 C:\Users\juanj\OneDrive\Escritorio\UNIVERSIDAD\2024-2\Herramientas de programacion 1\Final\FinalHP1\FinalHP1\FinalHP1\obj\Debug\FinalHP1.csproj.GenerateResource.cache
 C:\Users\juanj\OneDrive\Escritorio\UNIVERSIDAD\2024-2\Herramientas de programacion 1\Final\FinalHP1\FinalHP1\FinalHP1\obj\Debug\FinalHP1.csproj.CoreCompileInputs.cache
+C:\Users\juanj\OneDrive\Escritorio\UNIVERSIDAD\2024-2\Herramientas de programacion 1\Final\FinalHP1\FinalHP1\FinalHP1\bin\Debug\FinalHP1.exe.config
+C:\Users\juanj\OneDrive\Escritorio\UNIVERSIDAD\2024-2\Herramientas de programacion 1\Final\FinalHP1\FinalHP1\FinalHP1\bin\Debug\FinalHP1.exe
+C:\Users\juanj\OneDrive\Escritorio\UNIVERSIDAD\2024-2\Herramientas de programacion 1\Final\FinalHP1\FinalHP1\FinalHP1\bin\Debug\FinalHP1.pdb
+C:\Users\juanj\OneDrive\Escritorio\UNIVERSIDAD\2024-2\Herramientas de programacion 1\Final\FinalHP1\FinalHP1\FinalHP1\obj\Debug\FinalHP1.exe
+C:\Users\juanj\OneDrive\Escritorio\UNIVERSIDAD\2024-2\Herramientas de programacion 1\Final\FinalHP1\FinalHP1\FinalHP1\obj\Debug\FinalHP1.pdb

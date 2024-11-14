@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinalHP1;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,14 @@ namespace FinalHP1
 {
     public partial class Form1 : Form
     {
+        private Biblioteca biblioteca; // Declara la instancia de Biblioteca
+
         public Form1()
         {
             InitializeComponent();
+            biblioteca = new Biblioteca(); // Instancia la lógica de biblioteca
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
