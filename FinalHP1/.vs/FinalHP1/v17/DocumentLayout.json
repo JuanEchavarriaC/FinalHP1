@@ -7,16 +7,20 @@
       "RelativeMoniker": "D:0:0:{39F84837-D7E9-48AD-908A-7B9521DE1E05}|FinalHP1\\FinalHP1.csproj|solutionrelative:finalhp1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{39F84837-D7E9-48AD-908A-7B9521DE1E05}|FinalHP1\\FinalHP1.csproj|c:\\users\\juanj\\onedrive\\escritorio\\universidad\\2024-2\\herramientas de programacion 1\\final\\finalhp1\\finalhp1\\finalhp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{39F84837-D7E9-48AD-908A-7B9521DE1E05}|FinalHP1\\FinalHP1.csproj|C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\Final\\FinalHP1\\FinalHP1\\finalhp1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{39F84837-D7E9-48AD-908A-7B9521DE1E05}|FinalHP1\\FinalHP1.csproj|solutionrelative:finalhp1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39F84837-D7E9-48AD-908A-7B9521DE1E05}|FinalHP1\\FinalHP1.csproj|c:\\users\\juanj\\onedrive\\escritorio\\universidad\\2024-2\\herramientas de programacion 1\\final\\finalhp1\\finalhp1\\finalhp1\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39F84837-D7E9-48AD-908A-7B9521DE1E05}|FinalHP1\\FinalHP1.csproj|solutionrelative:finalhp1\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39F84837-D7E9-48AD-908A-7B9521DE1E05}|FinalHP1\\FinalHP1.csproj|C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\Final\\FinalHP1\\FinalHP1\\finalhp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{39F84837-D7E9-48AD-908A-7B9521DE1E05}|FinalHP1\\FinalHP1.csproj|solutionrelative:finalhp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{39F84837-D7E9-48AD-908A-7B9521DE1E05}|FinalHP1\\FinalHP1.csproj|c:\\users\\juanj\\onedrive\\escritorio\\universidad\\2024-2\\herramientas de programacion 1\\final\\finalhp1\\finalhp1\\finalhp1\\logicabiblioteca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{39F84837-D7E9-48AD-908A-7B9521DE1E05}|FinalHP1\\FinalHP1.csproj|C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\Final\\FinalHP1\\FinalHP1\\finalhp1\\logicabiblioteca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{39F84837-D7E9-48AD-908A-7B9521DE1E05}|FinalHP1\\FinalHP1.csproj|solutionrelative:finalhp1\\logicabiblioteca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{39F84837-D7E9-48AD-908A-7B9521DE1E05}|FinalHP1\\FinalHP1.csproj|C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\Final\\FinalHP1\\FinalHP1\\finalhp1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{39F84837-D7E9-48AD-908A-7B9521DE1E05}|FinalHP1\\FinalHP1.csproj|solutionrelative:finalhp1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,30 +30,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\Final\\FinalHP1\\FinalHP1\\FinalHP1\\Form1.cs",
-              "RelativeDocumentMoniker": "FinalHP1\\Form1.cs",
-              "ToolTip": "C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\Final\\FinalHP1\\FinalHP1\\FinalHP1\\Form1.cs",
-              "RelativeToolTip": "FinalHP1\\Form1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T19:17:57.048Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\Final\\FinalHP1\\FinalHP1\\FinalHP1\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "FinalHP1\\Form1.Designer.cs",
+              "ToolTip": "C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\Final\\FinalHP1\\FinalHP1\\FinalHP1\\Form1.Designer.cs",
+              "RelativeToolTip": "FinalHP1\\Form1.Designer.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAYwM8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T22:17:03.343Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "LogicaBiblioteca.cs",
               "DocumentMoniker": "C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\Final\\FinalHP1\\FinalHP1\\FinalHP1\\LogicaBiblioteca.cs",
               "RelativeDocumentMoniker": "FinalHP1\\LogicaBiblioteca.cs",
               "ToolTip": "C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\Final\\FinalHP1\\FinalHP1\\FinalHP1\\LogicaBiblioteca.cs",
               "RelativeToolTip": "FinalHP1\\LogicaBiblioteca.cs",
-              "ViewState": "AgIAAC8BAAAAAAAAAAAuwEIBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAB4BAAAAAAAAAAAqwCwBAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-14T19:15:36.465Z",
               "EditorCaption": ""
@@ -57,6 +65,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\Final\\FinalHP1\\FinalHP1\\FinalHP1\\Program.cs",
+              "RelativeDocumentMoniker": "FinalHP1\\Program.cs",
+              "ToolTip": "C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\Final\\FinalHP1\\FinalHP1\\FinalHP1\\Program.cs",
+              "RelativeToolTip": "FinalHP1\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T18:35:53.274Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Form1.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\Final\\FinalHP1\\FinalHP1\\FinalHP1\\Form1.cs",
               "RelativeDocumentMoniker": "FinalHP1\\Form1.cs",
@@ -68,15 +89,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\Final\\FinalHP1\\FinalHP1\\FinalHP1\\Program.cs",
-              "RelativeDocumentMoniker": "FinalHP1\\Program.cs",
-              "ToolTip": "C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\Final\\FinalHP1\\FinalHP1\\FinalHP1\\Program.cs",
-              "RelativeToolTip": "FinalHP1\\Program.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAqwBMAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\Final\\FinalHP1\\FinalHP1\\FinalHP1\\Form1.cs",
+              "RelativeDocumentMoniker": "FinalHP1\\Form1.cs",
+              "ToolTip": "C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\Final\\FinalHP1\\FinalHP1\\FinalHP1\\Form1.cs",
+              "RelativeToolTip": "FinalHP1\\Form1.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAA4wF0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T18:35:53.274Z",
+              "WhenOpened": "2024-11-14T19:17:57.048Z",
               "EditorCaption": ""
             }
           ]
