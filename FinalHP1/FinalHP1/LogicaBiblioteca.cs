@@ -1,322 +1,369 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 
-namespace FinalHP1 // Asegúrate que el namespace sea "FinalHP1" para que coincida con el proyecto
+namespace FinalHP1
 {
-    // Todo el código que te compartió tu amigo va aquí
+    public class Material
+    {
+        public string Id { get; set; }
+        public string Titulo { get; set; }
+        public DateTime FechaRegistro { get; set; }
+        public int CantidadRegistrada { get; set; }
+        public int CantidadActual { get; set; }
 
-        public class Material
+        public Material(string id, string titulo, DateTime fechaRegistro, int cantidadRegistrada)
         {
-            // Propiedades de la clase Material
-            public string Id { get; set; }       // Identificador único del material
-            public string Titulo { get; set; }   // Título del material
-            public DateTime FechaRegistro { get; set; } // Fecha en la que el material fue registrado
-            public int CantidadRegistrada { get; set; }  // Cantidad total de unidades registradas
-            public int CantidadActual { get; set; } // Cantidad actual disponible para préstamo
+            Id = id;
+            Titulo = titulo;
+            FechaRegistro = fechaRegistro;
+            CantidadRegistrada = cantidadRegistrada;
+            CantidadActual = cantidadRegistrada;
+        }
 
-            // Constructor
-            public Material(string id, string titulo, DateTime fechaRegistro, int cantidadRegistrada)
+        public void IncrementarCantidad(int cantidad)
+        {
+            CantidadRegistrada += cantidad;
+            CantidadActual += cantidad;
+        }
+
+        public bool Prestar()
+        {
+            if (CantidadActual > 0)
             {
-                Id = id;
-                Titulo = titulo;
-                FechaRegistro = fechaRegistro;
-                CantidadRegistrada = cantidadRegistrada;
-                CantidadActual = cantidadRegistrada; // Inicialmente la cantidad actual es igual a la registrada
+                CantidadActual--;
+                return true;
             }
+            return false;
+        }
 
-            // Método para incrementar la cantidad registrada de un material
-            public void IncrementarCantidad(int cantidad)
+        public void Devolver()
+        {
+            if (CantidadActual < CantidadRegistrada)
             {
-                CantidadRegistrada += cantidad;
-                CantidadActual += cantidad;
+                CantidadActual++;
             }
+        }
+    }
 
-            // Método para hacer un préstamo
-            public bool Prestar()
+    public class Persona
+    {
+        public string Nombre { get; set; }
+        public string Cedula { get; set; }
+        public string Rol { get; set; }
+        public int PrestamosActivos { get; set; }
+
+        public Persona(string nombre, string cedula, string rol)
+        {
+            Nombre = nombre;
+            Cedula = cedula;
+            Rol = rol;
+            PrestamosActivos = 0;
+        }
+
+        public bool PuedePrestar()
+        {
+            int limite = 0;
+            switch (Rol.ToLower())
             {
-                if (CantidadActual > 0)
-                {
-                    CantidadActual--;
-                    return true;
-                }
-                return false;
+                case "estudiante":
+                    limite = 5;
+                    break;
+                case "profesor":
+                    limite = 3;
+                    break;
+                case "administrativo":
+                    limite = 1;
+                    break;
+                default:
+                    throw new InvalidOperationException("Rol desconocido");
             }
+            return PrestamosActivos < limite;
+        }
 
-            // Método para devolver un material
-            public void Devolver()
+        public void RealizarPrestamo()
+        {
+            PrestamosActivos++;
+        }
+
+        public void RealizarDevolucion()
+        {
+            if (PrestamosActivos > 0)
             {
-                if (CantidadActual < CantidadRegistrada)
-                {
-                    CantidadActual++;
-                }
+                PrestamosActivos--;
+            }
+        }
+    }
+
+    public class Movimiento
+    {
+        public string IdMaterial { get; set; }
+        public string CedulaPersona { get; set; }
+        public DateTime FechaMovimiento { get; set; }
+        public string TipoMovimiento { get; set; }
+
+        public Movimiento(string idMaterial, string cedulaPersona, DateTime fechaMovimiento, string tipoMovimiento)
+        {
+            IdMaterial = idMaterial;
+            CedulaPersona = cedulaPersona;
+            FechaMovimiento = fechaMovimiento;
+            TipoMovimiento = tipoMovimiento;
+        }
+    }
+
+    public class CatalogoMateriales
+    {
+        private Dictionary<string, Material> materiales = new Dictionary<string, Material>();
+
+        public void RegistrarMaterial(Material material)
+        {
+            if (materiales.ContainsKey(material.Id))
+            {
+                throw new InvalidOperationException("Ya existe un material con este ID.");
+            }
+            materiales[material.Id] = material;
+        }
+
+        public Material ObtenerMaterial(string id)
+        {
+            if (materiales.ContainsKey(id))
+            {
+                return materiales[id];
+            }
+            return null;
+        }
+
+        public void IncrementarCantidadMaterial(string id, int cantidad)
+        {
+            Material material = catalogo.ObtenerMaterial(id);
+            if (material != null)
+            {
+                material.IncrementarCantidad(cantidad);
+            }
+            else
+            {
+                throw new InvalidOperationException("El material no existe.");
             }
         }
 
-        public class Persona
+        public List<Material> ObtenerTodosLosMateriales()
         {
-            // Propiedades de la clase Persona
-            public string Nombre { get; set; }
-            public string Cedula { get; set; } // Cédula única para cada persona
-            public string Rol { get; set; } // Estudiante, Profesor, Administrativo
-            public int PrestamosActivos { get; set; } // Cantidad de préstamos activos
+            return new List<Material>(materiales.Values);
+        }
+    }
 
-            // Constructor
-            public Persona(string nombre, string cedula, string rol)
+    public class RegistroPersonas
+    {
+        private Dictionary<string, Persona> personas = new Dictionary<string, Persona>();
+
+        public void RegistrarPersona(Persona persona)
+        {
+            if (personas.ContainsKey(persona.Cedula))
             {
-                Nombre = nombre;
-                Cedula = cedula;
-                Rol = rol;
-                PrestamosActivos = 0; // Inicialmente no tiene préstamos activos
+                throw new InvalidOperationException("Ya existe una persona con esta cédula.");
             }
+            personas[persona.Cedula] = persona;
+        }
 
-            // Método para verificar si la persona puede hacer un préstamo
-            public bool PuedePrestar()
+        public Persona ObtenerPersona(string cedula)
+        {
+            if (personas.ContainsKey(cedula))
             {
-                int limite = 0;
-
-                // Según el rol de la persona, se asigna el límite de préstamos
-                switch (Rol.ToLower())
-                {
-                    case "estudiante":
-                        limite = 5;
-                        break;
-                    case "profesor":
-                        limite = 3;
-                        break;
-                    case "administrativo":
-                        limite = 1;
-                        break;
-                    default:
-                        throw new InvalidOperationException("Rol desconocido");
-                }
-
-                // Verificamos si tiene capacidad para realizar más préstamos
-                return PrestamosActivos < limite;
+                return personas[cedula];
             }
+            return null;
+        }
 
-            // Método para realizar un préstamo
-            public void RealizarPrestamo()
+        public void EliminarPersona(string cedula)
+        {
+            Persona persona = ObtenerPersona(cedula);
+            if (persona != null && persona.PrestamosActivos == 0)
             {
-                PrestamosActivos++;
+                personas.Remove(cedula);
             }
-
-            // Método para realizar una devolución
-            public void RealizarDevolucion()
+            else
             {
-                if (PrestamosActivos > 0)
-                {
-                    PrestamosActivos--;
-                }
+                throw new InvalidOperationException("No se puede eliminar la persona, tiene préstamos activos.");
             }
         }
 
-        public class Movimiento
+        public List<Persona> ObtenerTodasLasPersonas()
         {
-            // Propiedades del movimiento
-            public string IdMaterial { get; set; }
-            public string CedulaPersona { get; set; }
-            public DateTime FechaMovimiento { get; set; }
-            public string TipoMovimiento { get; set; } // Puede ser "Préstamo" o "Devolución"
+            return new List<Persona>(personas.Values);
+        }
+    }
 
-            // Constructor
-            public Movimiento(string idMaterial, string cedulaPersona, DateTime fechaMovimiento, string tipoMovimiento)
-            {
-                IdMaterial = idMaterial;
-                CedulaPersona = cedulaPersona;
-                FechaMovimiento = fechaMovimiento;
-                TipoMovimiento = tipoMovimiento;
-            }
+    public class HistorialMovimientos
+    {
+        private List<Movimiento> movimientos = new List<Movimiento>();
+
+        public void RegistrarMovimiento(Movimiento movimiento)
+        {
+            movimientos.Add(movimiento);
         }
 
-
-        public class CatalogoMateriales
+        public List<Movimiento> ConsultarHistorial()
         {
-            // Diccionario que contiene los materiales, usando el ID como clave
-            private Dictionary<string, Material> materiales = new Dictionary<string, Material>();
+            return movimientos;
+        }
+    }
 
-            // Método para registrar un nuevo material en el catálogo
-            public void RegistrarMaterial(Material material)
-            {
-                if (materiales.ContainsKey(material.Id))
-                {
-                    throw new InvalidOperationException("Ya existe un material con este ID.");
-                }
-                materiales[material.Id] = material;
-            }
+    public class Biblioteca
+    {
+        private CatalogoMateriales catalogo;
+        private RegistroPersonas registroPersonas;
+        private HistorialMovimientos historial;
 
-            // Método para obtener un material por su ID
-            public Material ObtenerMaterial(string id)
-            {
-                if (materiales.ContainsKey(id))
-                {
-                    return materiales[id];
-                }
-                return null;
-            }
-
-            // Método para incrementar la cantidad registrada de un material
-            public void IncrementarCantidadMaterial(string id, int cantidad)
-            {
-                Material material = ObtenerMaterial(id);
-                if (material != null)
-                {
-                    material.IncrementarCantidad(cantidad);
-                }
-            }
+        public Biblioteca()
+        {
+            catalogo = new CatalogoMateriales();
+            registroPersonas = new RegistroPersonas();
+            historial = new HistorialMovimientos();
+            LeerDatos();
         }
 
-        public class RegistroPersonas
+        public void RegistrarMaterial(string id, string titulo, DateTime fechaRegistro, int cantidadRegistrada)
         {
-            // Diccionario que contiene las personas, usando la cédula como clave
-            private Dictionary<string, Persona> personas = new Dictionary<string, Persona>();
-
-            // Método para registrar una persona
-            public void RegistrarPersona(Persona persona)
-            {
-                if (personas.ContainsKey(persona.Cedula))
-                {
-                    throw new InvalidOperationException("Ya existe una persona con esta cédula.");
-                }
-                personas[persona.Cedula] = persona;
-            }
-
-            // Método para obtener una persona por su cédula
-            public Persona ObtenerPersona(string cedula)
-            {
-                if (personas.ContainsKey(cedula))
-                {
-                    return personas[cedula];
-                }
-                return null;
-            }
-
-            // Método para eliminar una persona, solo si no tiene préstamos activos
-            public void EliminarPersona(string cedula)
-            {
-                Persona persona = ObtenerPersona(cedula);
-                if (persona != null && persona.PrestamosActivos == 0)
-                {
-                    personas.Remove(cedula);
-                }
-                else
-                {
-                    throw new InvalidOperationException("No se puede eliminar la persona, tiene préstamos activos.");
-                }
-            }
+            Material material = new Material(id, titulo, fechaRegistro, cantidadRegistrada);
+            catalogo.RegistrarMaterial(material);
         }
 
-        public class HistorialMovimientos
+        public void RegistrarPersona(string nombre, string cedula, string rol)
         {
-            // Lista para almacenar los movimientos de préstamo y devolución
-            private List<Movimiento> movimientos = new List<Movimiento>();
-
-            // Método para registrar un movimiento en el historial
-            public void RegistrarMovimiento(Movimiento movimiento)
-            {
-                movimientos.Add(movimiento);
-            }
-
-            // Método para consultar el historial completo
-            public List<Movimiento> ConsultarHistorial()
-            {
-                return movimientos;
-            }
+            Persona persona = new Persona(nombre, cedula, rol);
+            registroPersonas.RegistrarPersona(persona);
         }
 
-        public class Biblioteca
+        public void EliminarPersona(string cedula)
         {
-            private CatalogoMateriales catalogo;
-            private RegistroPersonas registroPersonas;
-            private HistorialMovimientos historial;
+            registroPersonas.EliminarPersona(cedula);
+        }
 
-            // Constructor
-            public Biblioteca()
+        public void RegistrarPrestamo(string idMaterial, string cedulaPersona)
+        {
+            Material material = catalogo.ObtenerMaterial(idMaterial);
+            Persona persona = registroPersonas.ObtenerPersona(cedulaPersona);
+
+            if (material != null && persona != null && persona.PuedePrestar())
             {
-                catalogo = new CatalogoMateriales();
-                registroPersonas = new RegistroPersonas();
-                historial = new HistorialMovimientos();
-            }
-
-            // Método para registrar un material
-            public void RegistrarMaterial(string id, string titulo, DateTime fechaRegistro, int cantidadRegistrada)
-            {
-                Material material = new Material(id, titulo, fechaRegistro, cantidadRegistrada);
-                catalogo.RegistrarMaterial(material);
-            }
-
-            // Método para registrar una persona
-            public void RegistrarPersona(string nombre, string cedula, string rol)
-            {
-                Persona persona = new Persona(nombre, cedula, rol);
-                registroPersonas.RegistrarPersona(persona);
-            }
-
-            // Método para eliminar una persona
-            public void EliminarPersona(string cedula)
-            {
-                registroPersonas.EliminarPersona(cedula);
-            }
-
-            // Método para registrar un préstamo
-            public void RegistrarPrestamo(string idMaterial, string cedulaPersona)
-            {
-                Material material = catalogo.ObtenerMaterial(idMaterial);
-                Persona persona = registroPersonas.ObtenerPersona(cedulaPersona);
-
-                if (material != null && persona != null && persona.PuedePrestar())
+                if (material.Prestar())
                 {
-                    if (material.Prestar())
-                    {
-                        persona.RealizarPrestamo();
-                        Movimiento movimiento = new Movimiento(idMaterial, cedulaPersona, DateTime.Now, "Préstamo");
-                        historial.RegistrarMovimiento(movimiento);
-                        Console.WriteLine("Préstamo realizado con éxito.");
-                    }
-                    else
-                    {
-                        Console.WriteLine("No hay unidades disponibles para este material.");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("La persona no puede realizar más préstamos o el material no existe.");
-                }
-            }
-
-            // Método para registrar una devolución
-            public void RegistrarDevolucion(string idMaterial, string cedulaPersona)
-            {
-                Material material = catalogo.ObtenerMaterial(idMaterial);
-                Persona persona = registroPersonas.ObtenerPersona(cedulaPersona);
-
-                if (material != null && persona != null && persona.PrestamosActivos > 0)
-                {
-                    material.Devolver();
-                    persona.RealizarDevolucion();
-                    Movimiento movimiento = new Movimiento(idMaterial, cedulaPersona, DateTime.Now, "Devolución");
+                    persona.RealizarPrestamo();
+                    Movimiento movimiento = new Movimiento(idMaterial, cedulaPersona, DateTime.Now, "Préstamo");
                     historial.RegistrarMovimiento(movimiento);
-                    Console.WriteLine("Devolución registrada con éxito.");
+                    Console.WriteLine("Préstamo realizado con éxito.");
                 }
                 else
                 {
-                    Console.WriteLine("No se puede realizar la devolución.");
+                    Console.WriteLine("No hay unidades disponibles para este material.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("La persona no puede realizar más préstamos o el material no existe.");
+            }
+        }
+
+        public void RegistrarDevolucion(string idMaterial, string cedulaPersona)
+        {
+            Material material = catalogo.ObtenerMaterial(idMaterial);
+            Persona persona = registroPersonas.ObtenerPersona(cedulaPersona);
+
+            if (material != null && persona != null && persona.PrestamosActivos > 0)
+            {
+                material.Devolver();
+                persona.RealizarDevolucion();
+                Movimiento movimiento = new Movimiento(idMaterial, cedulaPersona, DateTime.Now, "Devolución");
+                historial.RegistrarMovimiento(movimiento);
+                Console.WriteLine("Devolución registrada con éxito.");
+            }
+            else
+            {
+                Console.WriteLine("No se puede realizar la devolución.");
+            }
+        }
+
+        public void ConsultarHistorial()
+        {
+            var movimientos = historial.ConsultarHistorial();
+            foreach (var movimiento in movimientos)
+            {
+                Console.WriteLine($"{movimiento.TipoMovimiento} | Material ID: {movimiento.IdMaterial} | Persona: {movimiento.CedulaPersona} | Fecha: {movimiento.FechaMovimiento}");
+            }
+        }
+
+        public void GuardarDatos()
+        {
+            using (StreamWriter writer = new StreamWriter("materiales.txt"))
+            {
+                foreach (var material in catalogo.ObtenerTodosLosMateriales())
+                {
+                    writer.WriteLine($"{material.Id},{material.Titulo},{material.FechaRegistro},{material.CantidadRegistrada},{material.CantidadActual}");
                 }
             }
 
-            // Método para consultar el historial
-            public void ConsultarHistorial()
+            using (StreamWriter writer = new StreamWriter("personas.txt"))
             {
-                var movimientos = historial.ConsultarHistorial();
-                foreach (var movimiento in movimientos)
+                foreach (var persona in registroPersonas.ObtenerTodasLasPersonas())
                 {
-                    Console.WriteLine($"{movimiento.TipoMovimiento} | Material ID: {movimiento.IdMaterial} | Persona: {movimiento.CedulaPersona} | Fecha: {movimiento.FechaMovimiento}");
+                    writer.WriteLine($"{persona.Nombre},{persona.Cedula},{persona.Rol},{persona.PrestamosActivos}");
+                }
+            }
+
+            using (StreamWriter writer = new StreamWriter("movimientos.txt"))
+            {
+                foreach (var movimiento in historial.ConsultarHistorial())
+                {
+                    writer.WriteLine($"{movimiento.IdMaterial},{movimiento.CedulaPersona},{movimiento.FechaMovimiento},{movimiento.TipoMovimiento}");
                 }
             }
         }
 
-    
+        public void LeerDatos()
+        {
+            if (File.Exists("materiales.txt"))
+            {
+                using (StreamReader reader = new StreamReader("materiales.txt"))
+                {
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        var data = line.Split(',');
+                        var material = new Material(data[0], data[1], DateTime.Parse(data[2]), int.Parse(data[3]));
+                        material.CantidadActual = int.Parse(data[4]);
+                        catalogo.RegistrarMaterial(material);
+                    }
+                }
+            }
 
+            if (File.Exists("personas.txt"))
+            {
+                using (StreamReader reader = new StreamReader("personas.txt"))
+                {
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        var data = line.Split(',');
+                        var persona = new Persona(data[0], data[1], data[2]);
+                        persona.PrestamosActivos = int.Parse(data[3]);
+                        registroPersonas.RegistrarPersona(persona);
+                    }
+                }
+            }
+
+            if (File.Exists("movimientos.txt"))
+            {
+                using (StreamReader reader = new StreamReader("movimientos.txt"))
+                {
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        var data = line.Split(',');
+                        var movimiento = new Movimiento(data[0], data[1], DateTime.Parse(data[2]), data[3]);
+                        historial.RegistrarMovimiento(movimiento);
+                    }
+                }
+            }
+        }
+    }
 }

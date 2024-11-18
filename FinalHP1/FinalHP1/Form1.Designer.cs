@@ -63,6 +63,7 @@
             this.btnRegistrarPersona.TabIndex = 1;
             this.btnRegistrarPersona.Text = "Registrar persona";
             this.btnRegistrarPersona.UseVisualStyleBackColor = true;
+            this.btnRegistrarPersona.Click += new System.EventHandler(this.btnRegistrarPersona_Click);
             // 
             // btnEliminarPersona
             // 
@@ -72,6 +73,7 @@
             this.btnEliminarPersona.TabIndex = 2;
             this.btnEliminarPersona.Text = "Eliminar persona";
             this.btnEliminarPersona.UseVisualStyleBackColor = true;
+            this.btnEliminarPersona.Click += new System.EventHandler(this.btnEliminarPersona_Click);
             // 
             // btnRegistrarPrestamo
             // 
@@ -81,6 +83,7 @@
             this.btnRegistrarPrestamo.TabIndex = 3;
             this.btnRegistrarPrestamo.Text = "Registrar prestamo";
             this.btnRegistrarPrestamo.UseVisualStyleBackColor = true;
+            this.btnRegistrarPrestamo.Click += new System.EventHandler(this.btnRegistrarPrestamo_Click);
             // 
             // btnRegistrarDevolucion
             // 
@@ -90,6 +93,7 @@
             this.btnRegistrarDevolucion.TabIndex = 4;
             this.btnRegistrarDevolucion.Text = "Registrar devolucion";
             this.btnRegistrarDevolucion.UseVisualStyleBackColor = true;
+            this.btnRegistrarDevolucion.Click += new System.EventHandler(this.btnRegistrarDevolucion_Click);
             // 
             // btnIncremenarCantidad
             // 
@@ -99,6 +103,7 @@
             this.btnIncremenarCantidad.TabIndex = 5;
             this.btnIncremenarCantidad.Text = "Incrementar cantidad";
             this.btnIncremenarCantidad.UseVisualStyleBackColor = true;
+            this.btnIncremenarCantidad.Click += new System.EventHandler(this.btnIncremenarCantidad_Click);
             // 
             // btnConsultarHistorial
             // 
@@ -108,6 +113,7 @@
             this.btnConsultarHistorial.TabIndex = 6;
             this.btnConsultarHistorial.Text = "Consultar historial";
             this.btnConsultarHistorial.UseVisualStyleBackColor = true;
+            this.btnConsultarHistorial.Click += new System.EventHandler(this.btnConsultarHistorial_Click);
             // 
             // textBoxMaterialId
             // 
@@ -154,6 +160,10 @@
             // comboBoxRol
             // 
             this.comboBoxRol.FormattingEnabled = true;
+            this.comboBoxRol.Items.AddRange(new object[] {
+            "Estudiante",
+            "Profesor",
+            "Administrativo"});
             this.comboBoxRol.Location = new System.Drawing.Point(546, 83);
             this.comboBoxRol.Name = "comboBoxRol";
             this.comboBoxRol.Size = new System.Drawing.Size(121, 24);
